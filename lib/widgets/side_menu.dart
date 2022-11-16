@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:my_fresh_web/constants.dart/controllers.dart';
-import 'package:my_fresh_web/constants.dart/style.dart';
+import 'package:my_fresh_web/constants/controllers.dart';
+import 'package:my_fresh_web/constants/style.dart';
 import 'package:my_fresh_web/layout/AppResponsive.dart';
 import 'package:my_fresh_web/route/routes.dart';
 import 'package:my_fresh_web/widgets/menu_item_side.dart';
@@ -18,25 +18,18 @@ class SideMenu extends StatelessWidget {
         children: [
           if (AppResponsive.isSmallScreen(context))
             Column(
-              mainAxisSize: MainAxisSize.min,
               children: [
                 SizedBox(
-                  height: 40,
+                  height: 20,
                 ),
-                Row(
-                  children: [
-                    SizedBox(width: _width / 48),
-                    Padding(
-                      padding: EdgeInsets.only(right: 12),
-                      child: Image.asset(
-                        "assets/images/logo.png",
-                        width: 200,
-                      ),
-                    ),
-                    SizedBox(
-                      width: _width / 48,
-                    )
-                  ],
+                DrawerHeader(
+                  child: Image.asset(
+                    "assets/images/150px.png",
+                    width: 150,
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
                 ),
               ],
             ),
@@ -46,15 +39,15 @@ class SideMenu extends StatelessWidget {
           Column(
             mainAxisSize: MainAxisSize.min,
             children: menuItems
-                .map((itemName) => MenuItemSide(
-                      itemName: itemName,
+                .map((item) => MenuItemSide(
+                      itemName: item.name,
                       onTap: () {
-                        if (!menuController.isActive(itemName)) {
-                          menuController.changeActiveitemTo(itemName);
+                        if (!menuController.isActive(item.name)) {
+                          menuController.changeActiveitemTo(item.name);
                           if (AppResponsive.isSmallScreen(context)) {
                             Get.back();
                           }
-                          // TODO :: go to item name Route
+                          navigationController.navigateTo(item.route);
                         }
                       },
                     ))

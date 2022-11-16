@@ -7,7 +7,7 @@ import 'package:my_fresh_web/widgets/top_app_bar.dart';
 
 class AppLayout extends StatelessWidget {
   AppLayout({super.key});
-  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
+  GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {

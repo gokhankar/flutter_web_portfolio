@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:my_fresh_web/constants.dart/controllers.dart';
-import 'package:my_fresh_web/constants.dart/style.dart';
+import 'package:my_fresh_web/constants/controllers.dart';
+import 'package:my_fresh_web/constants/style.dart';
 import 'package:my_fresh_web/widgets/my_text_widget.dart';
 
 class MenuItemHorizontal extends StatelessWidget {
@@ -23,7 +23,7 @@ class MenuItemHorizontal extends StatelessWidget {
       },
       child: Obx(() => Container(
             color: menuController.isHovering(itemName)
-                ? cLightMid.withOpacity(.1)
+                ? cLightMid.withOpacity(.7)
                 : Colors.transparent,
             child: Row(
               children: [
@@ -50,8 +50,9 @@ class MenuItemHorizontal extends StatelessWidget {
                   Flexible(
                       child: MyTextWidget(
                     text: itemName,
-                    color:
-                        menuController.isHovering(itemName) ? cDark : cLightMid,
+                    color: menuController.isHovering(itemName)
+                        ? cDark
+                        : cMiddleDark,
                   ))
                 else
                   Flexible(

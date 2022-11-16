@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:my_fresh_web/constants.dart/controllers.dart';
-import 'package:my_fresh_web/constants.dart/style.dart';
+import 'package:my_fresh_web/constants/controllers.dart';
+import 'package:my_fresh_web/constants/style.dart';
 import 'package:my_fresh_web/widgets/my_text_widget.dart';
 
 class MenuItemVertical extends StatelessWidget {
@@ -52,7 +52,7 @@ class MenuItemVertical extends StatelessWidget {
                         text: itemName,
                         color: menuController.isHovering(itemName)
                             ? cDark
-                            : cLightMid,
+                            : cMiddleDark,
                       ))
                     else
                       Flexible(

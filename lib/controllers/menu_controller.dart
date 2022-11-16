@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:my_fresh_web/constants.dart/style.dart';
+import 'package:my_fresh_web/constants/style.dart';
 import 'package:my_fresh_web/route/routes.dart';
 
 class MenuController extends GetxController {
   static MenuController instance = Get.find();
-  var activeItem = HomePageRoute.obs;
+  var activeItem = HomePageDisplayName.obs;
   var hoverItem = "".obs;
 
   changeActiveitemTo(String itemName) {
@@ -22,15 +22,15 @@ class MenuController extends GetxController {
 
   Widget returnIconFor(String itemName) {
     switch (itemName) {
-      case HomePageRoute:
+      case HomePageDisplayName:
         return customIcon(Icons.home_rounded, itemName);
-      case AboutPageRoute:
+      case AboutPageDisplayName:
         return customIcon(Icons.person_rounded, itemName);
-      case ProjectsPageRoute:
+      case ProjectsPageDisplayName:
         return customIcon(Icons.workspace_premium_rounded, itemName);
-      case BlogPageRoute:
+      case BlogPageDisplayName:
         return customIcon(Icons.brush_rounded, itemName);
-      case ContactsPageRoute:
+      case ContactPageDisplayName:
         return customIcon(Icons.phone_rounded, itemName);
       default:
         return customIcon(Icons.exit_to_app, itemName);
