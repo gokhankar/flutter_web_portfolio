@@ -29,13 +29,11 @@ class Home extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               border: Border.all(color: cLight, width: 1),
-              color: cLight,
+              color: Colors.green,
             ),
-            width:
-                AppResponsive.isSmallScreen(context) ? width * .9 : width * .4,
-            // height: AppResponsive.isSmallScreen(context)
-            //     ? width * .9 * 1.5 - 100
-            //     : width * .4 * 1.5 - 100,
+            // width:
+            //     AppResponsive.isSmallScreen(context) ? width * .9 : width * .4,
+
             child: Stack(
               fit: StackFit.expand,
               alignment: Alignment.bottomRight,

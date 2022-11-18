@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import 'package:my_fresh_web/constants/controllers.dart';
 import 'package:my_fresh_web/constants/style.dart';
 import 'package:my_fresh_web/layout/AppResponsive.dart';
+import 'package:my_fresh_web/route/routes.dart';
+import 'package:my_fresh_web/widgets/menu_item_horizontal.dart';
+import 'package:my_fresh_web/widgets/menu_item_side.dart';
 import 'package:my_fresh_web/widgets/my_text_widget.dart';
+import 'package:my_fresh_web/widgets/top_menu_item.dart';
 
 AppBar TopAppBar(BuildContext context, GlobalKey<ScaffoldState> key) => AppBar(
       elevation: 0,
@@ -9,7 +16,7 @@ AppBar TopAppBar(BuildContext context, GlobalKey<ScaffoldState> key) => AppBar(
       automaticallyImplyLeading: false,
       title: !AppResponsive.isSmallScreen(context)
           ? Row(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
                   padding: const EdgeInsets.only(left: 25),
@@ -19,7 +26,28 @@ AppBar TopAppBar(BuildContext context, GlobalKey<ScaffoldState> key) => AppBar(
                     filterQuality: FilterQuality.high,
                   ),
                 ),
-                Expanded(child: Container()),
+                // Expanded(child: Container()),
+                Flexible(
+                    child: IntrinsicHeight(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: menuItems
+                        .map((item) => TopMenuItem(
+                              itemName: item.name,
+                              onTap: () {
+                                if (!menuController.isActive(item.name)) {
+                                  menuController.changeActiveitemTo(item.name);
+                                  if (AppResponsive.isSmallScreen(context)) {
+                                    Get.back();
+                                  }
+                                  navigationController.navigateTo(item.route);
+                                }
+                              },
+                            ))
+                        .toList(),
+                  ),
+                )),
                 // IntrinsicHeight(
                 //   child: Row(
                 //     mainAxisAlignment: MainAxisAlignment.spaceAround,

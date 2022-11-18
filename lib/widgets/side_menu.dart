@@ -4,6 +4,7 @@ import 'package:my_fresh_web/constants/controllers.dart';
 import 'package:my_fresh_web/constants/style.dart';
 import 'package:my_fresh_web/layout/AppResponsive.dart';
 import 'package:my_fresh_web/route/routes.dart';
+import 'package:my_fresh_web/widgets/menu_item_horizontal.dart';
 import 'package:my_fresh_web/widgets/menu_item_side.dart';
 import 'package:my_fresh_web/widgets/my_text_widget.dart';
 
@@ -39,7 +40,7 @@ class SideMenu extends StatelessWidget {
           Column(
             mainAxisSize: MainAxisSize.min,
             children: menuItems
-                .map((item) => MenuItemSide(
+                .map((item) => MenuItemHorizontal(
                       itemName: item.name,
                       onTap: () {
                         if (!menuController.isActive(item.name)) {

@@ -12,9 +12,9 @@ class LargeScreen extends StatelessWidget {
     return Stack(children: [
       Row(
         children: [
-          Expanded(
-              // flex: 1,
-              child: SideMenu()),
+          // Expanded(
+          //     // flex: 1,
+          //     child: SideMenu()),
           Expanded(flex: 5, child: localNavigator()),
         ],
       ),
