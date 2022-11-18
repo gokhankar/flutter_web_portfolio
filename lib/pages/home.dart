@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_fresh_web/constants/style.dart';
 import 'package:my_fresh_web/layout/AppResponsive.dart';
+import 'package:my_fresh_web/widgets/gradient_button.dart';
 import 'package:my_fresh_web/widgets/my_text_widget.dart';
 import 'package:my_fresh_web/widgets/rps_costum_painter.dart';
 import 'package:simple_animations/simple_animations.dart';
@@ -165,6 +167,39 @@ class Home extends StatelessWidget {
                             GoogleFonts.roboto(fontSize: 24, color: cTextLight),
                         textAlign: TextAlign.left,
                       ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        children: [
+                          // IconButton(onPressed: (){}, icon: Icon(Icons.goog))
+                          IconButton(
+                              onPressed: () {},
+                              icon: FaIcon(FontAwesomeIcons.github)),
+                          IconButton(
+                              onPressed: () {},
+                              icon: FaIcon(FontAwesomeIcons.twitter)),
+                          IconButton(
+                              onPressed: () {},
+                              icon: FaIcon(FontAwesomeIcons.instagram)),
+                          IconButton(
+                              onPressed: () {},
+                              icon: FaIcon(FontAwesomeIcons.linkedin)),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 30,
+                      ),
+                      GradientButton(),
+                      // ElevatedButton(
+                      //   onPressed: () {},
+                      //   child: Text(
+                      //     "SEE MY WORKS",
+                      //     style: GoogleFonts.roboto(
+                      //         fontSize: 24, color: cTextLight),
+                      //     textAlign: TextAlign.left,
+                      //   ),
+                      // )
                     ],
                   ),
                 ),
