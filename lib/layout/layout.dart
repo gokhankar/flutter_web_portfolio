@@ -13,6 +13,7 @@ class AppLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: TopAppBar(context, scaffoldKey),
+        extendBodyBehindAppBar: true,
         drawer: Drawer(
           child: SideMenu(),
         ),

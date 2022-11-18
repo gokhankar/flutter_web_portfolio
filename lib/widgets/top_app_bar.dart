@@ -74,5 +74,5 @@ AppBar TopAppBar(BuildContext context, GlobalKey<ScaffoldState> key) => AppBar(
                     )),
               ],
             ),
-      backgroundColor: cLight,
+      backgroundColor: Colors.transparent,
     );
