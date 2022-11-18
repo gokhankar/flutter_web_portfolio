@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
           name: "/error",
           page: () => ErrorPage(),
           transition: Transition.fadeIn),
-      title: 'Gokhan Karacay Portfolio',
+      title: 'Gökhan Karaçay Portfolio',
       theme: ThemeData(
           scaffoldBackgroundColor: cLight,
           textTheme: GoogleFonts.mulishTextTheme(Theme.of(context).textTheme)
