@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_portfolio/pages/aboutPage.dart';
-import 'package:flutter_portfolio/pages/blogPage.dart';
-import 'package:flutter_portfolio/pages/contactPage.dart';
+import 'package:flutter_portfolio/pages/about_page.dart';
+import 'package:flutter_portfolio/pages/blog_page.dart';
+import 'package:flutter_portfolio/pages/contact_page.dart';
 import 'package:flutter_portfolio/pages/error_page.dart';
 import 'package:flutter_portfolio/pages/home.dart';
-import 'package:flutter_portfolio/pages/projectsPage.dart';
+import 'package:flutter_portfolio/pages/projects_page.dart';
 import 'package:flutter_portfolio/route/routes.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
