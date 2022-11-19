@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/widgets/gradient_bg_animation.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_portfolio/constants/style.dart';
 import 'package:flutter_portfolio/layout/AppResponsive.dart';
 import 'package:flutter_portfolio/widgets/gradient_button.dart';
 import 'package:flutter_portfolio/widgets/rps_costum_painter.dart';
-import 'package:simple_animations/simple_animations.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -29,45 +29,7 @@ class Home extends StatelessWidget {
               ),
               Positioned(
                 right: 0,
-                child: Container(
-                  // width: AppResponsive.isSmallScreen(context)
-                  //     ? width * .9
-                  //     : width * .4,
-                  height: height,
-                  width: height * 2 / 3,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: cLight, width: 1),
-                    gradient: LinearGradient(
-                      tileMode: TileMode.mirror,
-                      begin: Alignment.topRight,
-                      end: Alignment.bottomRight,
-                      colors: [
-                        cMiddle,
-                        cDark,
-                      ],
-                      stops: const [
-                        0,
-                        1,
-                      ],
-                    ),
-                    backgroundBlendMode: BlendMode.srcOver,
-                  ),
-                  child: PlasmaRenderer(
-                    type: PlasmaType.infinity,
-                    particles: 10,
-                    color: cDark,
-                    blur: 0.31,
-                    size: 1,
-                    speed: 1.86,
-                    offset: 0,
-                    blendMode: BlendMode.plus,
-                    particleType: ParticleType.atlas,
-                    variation1: 0,
-                    variation2: 0,
-                    variation3: 0,
-                    rotation: 0,
-                  ),
-                ),
+                child: GradientBgAnimation(height: height),
               ),
               Positioned(
                   right: 0,

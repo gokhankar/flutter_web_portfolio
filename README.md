@@ -8,5 +8,5 @@ A responsive Gökhan Karaçay portfolio that coded to make some workout on espec
 ![Middle Screen](https://raw.githubusercontent.com/gokhankar/flutter_web_portfolio/main/screenshots/2.png)
 ![Small Screen](https://raw.githubusercontent.com/gokhankar/flutter_web_portfolio/main/screenshots/3.png)
 
-Thanks to [Santos Enoque](https://github.com/Santos-Enoque)for layout ideas :)
+Thanks to [Santos Enoque](https://github.com/Santos-Enoque) for layout ideas :)
  
