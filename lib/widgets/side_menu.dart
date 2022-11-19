@@ -17,23 +17,22 @@ class SideMenu extends StatelessWidget {
       color: cLight,
       child: ListView(
         children: [
-          if (AppResponsive.isSmallScreen(context))
-            Column(
-              children: [
-                SizedBox(
-                  height: 20,
+          Column(
+            children: [
+              SizedBox(
+                height: 20,
+              ),
+              DrawerHeader(
+                child: Image.asset(
+                  "assets/images/150px.png",
+                  width: 150,
                 ),
-                DrawerHeader(
-                  child: Image.asset(
-                    "assets/images/150px.png",
-                    width: 150,
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-              ],
-            ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+            ],
+          ),
           Divider(
             color: cLightMid.withOpacity(.1),
           ),

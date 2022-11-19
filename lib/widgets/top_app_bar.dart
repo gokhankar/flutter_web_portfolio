@@ -33,60 +33,34 @@ AppBar TopAppBar(BuildContext context, GlobalKey<ScaffoldState> key) => AppBar(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: menuItems
-                        .map((item) => TopMenuItem(
-                              itemName: item.name,
-                              onTap: () {
-                                if (!menuController.isActive(item.name)) {
-                                  menuController.changeActiveitemTo(item.name);
-                                  if (AppResponsive.isSmallScreen(context)) {
-                                    Get.back();
-                                  }
-                                  navigationController.navigateTo(item.route);
-                                }
-                              },
+                        .map((item) => Row(
+                              children: [
+                                TopMenuItem(
+                                  itemName: item.name,
+                                  onTap: () {
+                                    if (!menuController.isActive(item.name)) {
+                                      menuController
+                                          .changeActiveitemTo(item.name);
+                                      if (AppResponsive.isSmallScreen(
+                                          context)) {
+                                        Get.back();
+                                      }
+                                      navigationController
+                                          .navigateTo(item.route);
+                                    }
+                                  },
+                                ),
+                                if (item.name != 'Contact')
+                                  const VerticalDivider(
+                                    width: 1,
+                                    indent: 5,
+                                    endIndent: 5,
+                                  ),
+                              ],
                             ))
                         .toList(),
                   ),
                 )),
-                // IntrinsicHeight(
-                //   child: Row(
-                //     mainAxisAlignment: MainAxisAlignment.spaceAround,
-                //     children: const [
-                //       MyTextWidget(
-                //         text: "Home",
-                //         fontWeight: FontWeight.w700,
-                //       ),
-                //       VerticalDivider(
-                //         width: 25,
-                //       ),
-                //       MyTextWidget(
-                //         text: "About",
-                //         fontWeight: FontWeight.w700,
-                //       ),
-                //       VerticalDivider(
-                //         width: 25,
-                //       ),
-                //       MyTextWidget(
-                //         text: "Projects",
-                //         fontWeight: FontWeight.w700,
-                //       ),
-                //       VerticalDivider(
-                //         width: 25,
-                //       ),
-                //       MyTextWidget(
-                //         text: "Blog",
-                //         fontWeight: FontWeight.w700,
-                //       ),
-                //       VerticalDivider(
-                //         width: 25,
-                //       ),
-                //       MyTextWidget(
-                //         text: "Contact",
-                //         fontWeight: FontWeight.w700,
-                //       ),
-                //     ],
-                //   ),
-                // )
               ],
             )
           : Row(

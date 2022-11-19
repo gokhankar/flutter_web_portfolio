@@ -19,12 +19,6 @@ class Home extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.end,
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        // Expanded(
-        //   child: Container(
-        //     color: Colors.green,
-        //     child: Text('Merhaba', style: TextStyle(fontSize: 30)),
-        //   ),
-        // ),
         Expanded(
           child: Container(
             decoration: BoxDecoration(

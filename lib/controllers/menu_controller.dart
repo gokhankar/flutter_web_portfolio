@@ -39,15 +39,22 @@ class MenuController extends GetxController {
 
   Widget customIcon(IconData icon, String itemName) {
     if (isActive(itemName))
-      return Icon(
-        icon,
-        size: 22,
-        color: cDark,
+      return Container(
+        margin: const EdgeInsets.only(right: 5),
+        child: Icon(
+          icon,
+          size: 15,
+          color: cDark,
+        ),
       );
 
-    return Icon(
-      icon,
-      color: isHovering(itemName) ? cDark : cLightMid,
+    return Container(
+      margin: EdgeInsets.only(right: 5),
+      child: Icon(
+        icon,
+        color: isHovering(itemName) ? cDark : cLightMid,
+        size: 15,
+      ),
     );
   }
 }

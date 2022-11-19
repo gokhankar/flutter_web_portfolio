@@ -21,45 +21,30 @@ class TopMenuItem extends StatelessWidget {
             : menuController.onHover("not hovering");
       },
       child: Obx(() => Container(
-            // height: 40,
-            // width: 100,
-            margin: EdgeInsets.symmetric(horizontal: 10),
+            padding: const EdgeInsets.fromLTRB(10, 2, 10, 2),
             color: menuController.isHovering(itemName)
                 ? cLightMid.withOpacity(.7)
                 : Colors.transparent,
             child: Row(
               children: [
-                // Visibility(
-                //   visible: menuController.isHovering(itemName) ||
-                //       menuController.isActive(itemName),
-                //   child: Container(
-                //     width: 6,
-                //     height: 15,
-                //     color: cDark,
-                //   ),
-                //   maintainSize: true,
-                //   maintainState: true,
-                //   maintainAnimation: true,
-                // ),
-                // SizedBox(
-                //   width: _width / 80,
-                // ),
                 Padding(
-                  padding: EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(0),
                   child: menuController.returnIconFor(itemName),
                 ),
                 if (!menuController.isActive(itemName))
                   MyTextWidget(
                     text: itemName,
+                    size: 12,
                     color: menuController.isHovering(itemName)
                         ? cDark
                         : cMiddleDark,
+                    fontWeight: FontWeight.bold,
                   )
                 else
                   MyTextWidget(
                     text: itemName,
                     color: cDark,
-                    size: 14,
+                    size: 12,
                     fontWeight: FontWeight.bold,
                   )
               ],
