@@ -4,7 +4,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_fresh_web/constants/style.dart';
 import 'package:my_fresh_web/layout/AppResponsive.dart';
 import 'package:my_fresh_web/widgets/gradient_button.dart';
-import 'package:my_fresh_web/widgets/my_text_widget.dart';
 import 'package:my_fresh_web/widgets/rps_costum_painter.dart';
 import 'package:simple_animations/simple_animations.dart';
 

@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       unknownRoute: GetPage(
           name: "/error",
           page: () => ErrorPage(),
-          transition: Transition.fadeIn),
+          transition: Transition.leftToRight),
       title: 'Gökhan Karaçay Portfolio',
       theme: ThemeData(
           scaffoldBackgroundColor: cLight,
