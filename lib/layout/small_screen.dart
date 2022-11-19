@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_fresh_web/constants/style.dart';
-import 'package:my_fresh_web/route/local_navigator.dart';
+import 'package:flutter_portfolio/constants/style.dart';
+import 'package:flutter_portfolio/route/local_navigator.dart';
 
 class SmallScreen extends StatelessWidget {
   const SmallScreen({super.key});

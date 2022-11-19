@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:my_fresh_web/constants/controllers.dart';
-import 'package:my_fresh_web/constants/style.dart';
-import 'package:my_fresh_web/layout/AppResponsive.dart';
-import 'package:my_fresh_web/route/routes.dart';
-import 'package:my_fresh_web/widgets/menu_item_horizontal.dart';
+import 'package:flutter_portfolio/constants/controllers.dart';
+import 'package:flutter_portfolio/constants/style.dart';
+import 'package:flutter_portfolio/layout/AppResponsive.dart';
+import 'package:flutter_portfolio/route/routes.dart';
+import 'package:flutter_portfolio/widgets/menu_item_horizontal.dart';
 
 class SideMenu extends StatelessWidget {
   @override

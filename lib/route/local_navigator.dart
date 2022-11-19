@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_fresh_web/constants/controllers.dart';
-import 'package:my_fresh_web/route/router.dart';
-import 'package:my_fresh_web/route/routes.dart';
+import 'package:flutter_portfolio/constants/controllers.dart';
+import 'package:flutter_portfolio/route/router.dart';
+import 'package:flutter_portfolio/route/routes.dart';
 
 Navigator localNavigator() => Navigator(
       key: navigationController.navigationKey,

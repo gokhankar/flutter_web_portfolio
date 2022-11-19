@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_fresh_web/constants/style.dart';
-import 'package:my_fresh_web/route/local_navigator.dart';
-import 'package:my_fresh_web/widgets/side_menu.dart';
+import 'package:flutter_portfolio/constants/style.dart';
+import 'package:flutter_portfolio/route/local_navigator.dart';
+import 'package:flutter_portfolio/widgets/side_menu.dart';
 
 class LargeScreen extends StatelessWidget {
   const LargeScreen({super.key});

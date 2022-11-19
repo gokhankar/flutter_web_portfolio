@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_fresh_web/widgets/my_text_widget.dart';
+import 'package:flutter_portfolio/widgets/my_text_widget.dart';
 
 class ErrorPage extends StatelessWidget {
   const ErrorPage({super.key});

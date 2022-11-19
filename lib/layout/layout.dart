@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:my_fresh_web/layout/AppResponsive.dart';
-import 'package:my_fresh_web/layout/large_screen.dart';
-import 'package:my_fresh_web/layout/small_screen.dart';
-import 'package:my_fresh_web/widgets/side_menu.dart';
-import 'package:my_fresh_web/widgets/top_app_bar.dart';
+import 'package:flutter_portfolio/layout/AppResponsive.dart';
+import 'package:flutter_portfolio/layout/large_screen.dart';
+import 'package:flutter_portfolio/layout/small_screen.dart';
+import 'package:flutter_portfolio/widgets/side_menu.dart';
+import 'package:flutter_portfolio/widgets/top_app_bar.dart';
 
 class AppLayout extends StatelessWidget {
   AppLayout({super.key});

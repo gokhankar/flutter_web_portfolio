@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_fresh_web/constants/style.dart';
+import 'package:flutter_portfolio/constants/style.dart';
 
 class RPSCustomPainter extends CustomPainter {
   @override

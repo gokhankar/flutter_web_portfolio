@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_fresh_web/constants/style.dart';
-import 'package:my_fresh_web/controllers/menu_controller.dart';
-import 'package:my_fresh_web/controllers/navigation_controller.dart';
-import 'package:my_fresh_web/layout/layout.dart';
-import 'package:my_fresh_web/pages/error_page.dart';
-import 'package:my_fresh_web/pages/home.dart';
-import 'package:my_fresh_web/route/routes.dart';
+import 'package:flutter_portfolio/constants/style.dart';
+import 'package:flutter_portfolio/controllers/menu_controller.dart';
+import 'package:flutter_portfolio/controllers/navigation_controller.dart';
+import 'package:flutter_portfolio/layout/layout.dart';
+import 'package:flutter_portfolio/pages/error_page.dart';
+import 'package:flutter_portfolio/pages/home.dart';
+import 'package:flutter_portfolio/route/routes.dart';
 
 void main() {
   Get.put(MenuController());

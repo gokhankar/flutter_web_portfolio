@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_fresh_web/constants/app_constants.dart';
+import 'package:flutter_portfolio/constants/app_constants.dart';
 
 class AppResponsive extends StatelessWidget {
   final Widget largeScreen;

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_fresh_web/widgets/my_text_widget.dart';
+import 'package:flutter_portfolio/widgets/my_text_widget.dart';
 
 class ContactPage extends StatelessWidget {
   const ContactPage({super.key});

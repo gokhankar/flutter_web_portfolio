@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:my_fresh_web/constants/controllers.dart';
-import 'package:my_fresh_web/constants/style.dart';
-import 'package:my_fresh_web/widgets/my_text_widget.dart';
+import 'package:flutter_portfolio/constants/controllers.dart';
+import 'package:flutter_portfolio/constants/style.dart';
+import 'package:flutter_portfolio/widgets/my_text_widget.dart';
 
 class MenuItemHorizontal extends StatelessWidget {
   final String itemName;

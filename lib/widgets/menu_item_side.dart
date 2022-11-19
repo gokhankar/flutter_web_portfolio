@@ -1,7 +1,7 @@
 // import 'package:flutter/material.dart';
-// import 'package:my_fresh_web/layout/AppResponsive.dart';
-// import 'package:my_fresh_web/widgets/menu_item_horizontal.dart';
-// import 'package:my_fresh_web/widgets/menu_item_vertical.dart';
+// import 'package:flutter_portfolio/layout/AppResponsive.dart';
+// import 'package:flutter_portfolio/widgets/menu_item_horizontal.dart';
+// import 'package:flutter_portfolio/widgets/menu_item_vertical.dart';
 
 // class MenuItemSide extends StatelessWidget {
 //   final String itemName;
