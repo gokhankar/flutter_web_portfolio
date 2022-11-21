@@ -4,14 +4,22 @@ import 'package:flutter_portfolio/constants/style.dart';
 import 'package:flutter_portfolio/layout/AppResponsive.dart';
 
 class GradientButton extends StatelessWidget {
-  const GradientButton({
+  final String title;
+  final int? height;
+  final int? smallScreenheight;
+  GradientButton({
     Key? key,
+    required this.title,
+    this.height = 50,
+    this.smallScreenheight,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: AppResponsive.isSmallScreen(context) ? 30 : 50,
+      height: AppResponsive.isSmallScreen(context)
+          ? smallScreenheight?.toDouble() ?? 30
+          : height?.toDouble() ?? 50,
       child: ElevatedButton(
         onPressed: () {},
         style: ElevatedButton.styleFrom(padding: EdgeInsets.all(0.0)),
@@ -20,7 +28,7 @@ class GradientButton extends StatelessWidget {
         child: Ink(
           decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [cDark, cMiddleDark],
+                colors: [cMiddleDark, cDark],
                 begin: Alignment.centerLeft,
                 end: Alignment.centerRight,
               ),
@@ -29,7 +37,7 @@ class GradientButton extends StatelessWidget {
             constraints: BoxConstraints(maxWidth: 200.0, minHeight: 40.0),
             alignment: Alignment.center,
             child: Text(
-              "SEE MY WORKS",
+              title,
               style: GoogleFonts.roboto(
                   fontSize: AppResponsive.isSmallScreen(context) ? 14 : 18,
                   color: cLight,

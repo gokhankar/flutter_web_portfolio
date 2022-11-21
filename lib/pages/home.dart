@@ -123,7 +123,7 @@ class Home extends StatelessWidget {
                     SizedBox(
                       height: AppResponsive.isSmallScreen(context) ? 15 : 30,
                     ),
-                    const GradientButton(),
+                    GradientButton(title: "SEE MY WORKS"),
                   ],
                 ),
               ),

@@ -2,8 +2,10 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/constants/style.dart';
+import 'package:flutter_portfolio/layout/AppResponsive.dart';
 import 'package:flutter_portfolio/widgets/gradient_bg_animation.dart';
 import 'package:flutter_portfolio/widgets/gradient_bg_animation_about.dart';
+import 'package:flutter_portfolio/widgets/gradient_button.dart';
 import 'package:flutter_portfolio/widgets/my_text_widget.dart';
 import 'package:flutter_portfolio/widgets/rps_costum_painter_about.dart';
 
@@ -12,57 +14,93 @@ class AboutPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
     return Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Container(
-            // height: 350,
-            // width: 350,
-            alignment: Alignment.center,
-            child: Stack(children: [
-              Container(
-                height: 350,
-                width: 350,
-              ),
-              Positioned(
-                  left: 0,
-                  top: 0,
-                  child: GradientBgAnimationAbout(
-                    height: 350,
-                  )),
-              Positioned(
-                  left: 0,
-                  top: 0,
-                  height: 350,
-                  width: 350,
-                  child: Container(
-                      alignment: Alignment.bottomCenter,
-                      width: 350,
-                      height: 350,
-                      child: Image.asset('assets/images/profile1.png',
-                          height: 290))),
-              Positioned(
-                  left: 0,
-                  top: 0,
-                  child: Container(
-                    height: 350,
-                    width: 350,
-                    child: CustomPaint(
-                      size: Size(350, 350.toDouble()),
-                      painter: RPSCustomPainterAbout(),
+          width >= 550
+              ? Container(
+                  // height: 350,
+                  // width: 350,
+                  padding: EdgeInsets.all(
+                      AppResponsive.isSmallScreen(context) ? 30 : 50),
+                  alignment: Alignment.center,
+                  child: Stack(children: [
+                    Container(
+                      height: width >= 700 ? 350 : 250,
+                      width: width >= 700 ? 350 : 250,
                     ),
-                  ))
-            ]),
-          ),
-          Container(
-            alignment: Alignment.center,
-            color: Colors.red,
+                    Positioned(
+                        left: 0,
+                        top: 0,
+                        child: GradientBgAnimationAbout(
+                          height: width >= 700 ? 350 : 250,
+                        )),
+                    Positioned(
+                        left: 0,
+                        top: 0,
+                        height: width >= 700 ? 350 : 250,
+                        width: width >= 700 ? 350 : 250,
+                        child: Container(
+                            alignment: Alignment.bottomCenter,
+                            width: width >= 700 ? 350 : 250,
+                            height: width >= 700 ? 350 : 250,
+                            child: Image.asset('assets/images/profile1.png',
+                                height: width >= 700 ? 290 : 200))),
+                    Positioned(
+                        left: 0,
+                        top: 0,
+                        child: Container(
+                          height: width >= 700 ? 350 : 250,
+                          width: width >= 700 ? 350 : 250,
+                          child: CustomPaint(
+                            size: Size(width >= 700 ? 350 : 250,
+                                width >= 700 ? 350 : 250.toDouble()),
+                            painter: RPSCustomPainterAbout(),
+                          ),
+                        ))
+                  ]),
+                )
+              : Container(),
+          Expanded(
             child: Container(
-              width: 350,
-              color: cLight,
-              child: Column(
-                children: [MyTextWidget(text: "ABOUT ME")],
+              padding: EdgeInsets.all(
+                  AppResponsive.isSmallScreen(context) ? 30 : 50),
+              alignment: Alignment.center,
+              child: Container(
+                alignment: Alignment.center,
+                // width: 350,
+                color: cLight,
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      MyTextWidget(
+                        text: "ABOUT ME",
+                        size: 14,
+                        color: cTextLight,
+                      ),
+                      SizedBox(height: 20),
+                      MyTextWidget(
+                        text: "FLUTTER MOBILE APPLICATION DEVELOPER",
+                        size: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      SizedBox(height: 20),
+                      MyTextWidget(
+                        text:
+                            "A passionate developer interested in building the best applications in the mobile environment.\n\nFor over 4 years, I’ve been developing web applications, and for 2 years I have been in the mobile application market. \n\nWhen I’m not on the job, I love mercilessly killing my time with my family(with my two little sons), walking in nature, and indulging my love for seeing new places.",
+                        size: 14,
+                        color: cTextLight,
+                        fontWeight: FontWeight.w300,
+                      ),
+                      SizedBox(height: 20),
+                      GradientButton(title: "DOWNLOAD CV")
+                    ],
+                  ),
+                ),
               ),
             ),
           )
