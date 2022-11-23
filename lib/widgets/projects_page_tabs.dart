@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:flutter_portfolio/layout/AppResponsive.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'package:flutter_portfolio/constants/controllers.dart';
 import 'package:flutter_portfolio/constants/style.dart';
@@ -16,6 +17,15 @@ class ProjectsPageTabs extends StatelessWidget {
     Get.put(ProjectsController());
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
+    Future<void> _launchInBrowser(Uri url) async {
+      if (!await launchUrl(
+        url,
+        mode: LaunchMode.externalApplication,
+      )) {
+        throw 'Could not launch $url';
+      }
+    }
+
     return DefaultTabController(
         length: 4, // length of tabs
         initialIndex: 0,
@@ -32,7 +42,7 @@ class ProjectsPageTabs extends StatelessWidget {
               unselectedLabelColor: cTextLight,
               labelColor: cMiddleDark,
               isScrollable: true,
-              labelPadding: EdgeInsets.only(left: 0, right: 20),
+              labelPadding: EdgeInsets.only(left: 5, right: 20, top: 0),
               tabs: [
                 Tab(text: "Flutter"),
                 Tab(text: 'React Native'),
@@ -48,78 +58,259 @@ class ProjectsPageTabs extends StatelessWidget {
               //         Border(top: BorderSide(color: Colors.grey, width: 0.5))),
               child: TabBarView(children: <Widget>[
                 Container(
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text('Flutter Projects',
-                                style: TextStyle(
-                                    fontSize: 20, fontWeight: FontWeight.bold)),
-                          ],
-                        ),
+                  child: SingleChildScrollView(
+                    child: Container(
+                      width: width - 100,
+                      child: Column(
+                        children: [
+                          GridView(
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: width >= 900
+                                  ? 4
+                                  : (900 > width && width >= 600)
+                                      ? 3
+                                      : (600 > width && width >= 400)
+                                          ? 2
+                                          : 1,
+                            ),
+                            shrinkWrap: true,
+                            children: projectsController.flutterProjects
+                                .map((item) => Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: InkWell(
+                                        onTap: () => _launchInBrowser(Uri.parse(
+                                            item["link"] ??
+                                                item["github"].toString())),
+                                        child: Card(
+                                          elevation: 5,
+                                          child: Column(
+                                            children: [
+                                              ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                                child: Image.asset(
+                                                  item["image"]!,
+                                                ),
+                                              ),
+                                              Divider(),
+                                              Title(
+                                                  color: cText,
+                                                  child: MyTextWidget(
+                                                      text: item["title"]!)),
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.all(5.0),
+                                                child: MyTextWidget(
+                                                  text: item["info"]!,
+                                                  size: 12,
+                                                  color: cTextLight,
+                                                  fontWeight: FontWeight.w300,
+                                                  maxLines: 2,
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                height: 5,
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ))
+                                .toList(),
+                          )
+                        ],
                       ),
-                    ],
+                    ),
                   ),
                 ),
                 Container(
-                  child: Text('React Native',
-                      style:
-                          TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+                  child: SingleChildScrollView(
+                    child: Container(
+                      width: width - 100,
+                      child: Column(
+                        children: [
+                          GridView(
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: width >= 900
+                                  ? 4
+                                  : (900 > width && width >= 600)
+                                      ? 3
+                                      : (600 > width && width >= 400)
+                                          ? 2
+                                          : 1,
+                            ),
+                            shrinkWrap: true,
+                            children: projectsController.reactNativeProjects
+                                .map((item) => Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: InkWell(
+                                        onTap: () => _launchInBrowser(Uri.parse(
+                                            item["link"] ??
+                                                item["github"].toString())),
+                                        child: Card(
+                                          elevation: 5,
+                                          child: Column(
+                                            children: [
+                                              ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                                child: Image.asset(
+                                                  item["image"]!,
+                                                ),
+                                              ),
+                                              Divider(),
+                                              Title(
+                                                  color: cText,
+                                                  child: MyTextWidget(
+                                                      text: item["title"]!)),
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.all(5.0),
+                                                child: MyTextWidget(
+                                                  text: item["info"]!,
+                                                  size: 12,
+                                                  color: cTextLight,
+                                                  fontWeight: FontWeight.w300,
+                                                  maxLines: 2,
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                height: 5,
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ))
+                                .toList(),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
                 ),
                 Container(
-                  child: Text('React',
-                      style:
-                          TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+                  child: SingleChildScrollView(
+                    child: Container(
+                      width: width - 100,
+                      child: Column(
+                        children: [
+                          GridView(
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: width >= 900
+                                  ? 4
+                                  : (900 > width && width >= 600)
+                                      ? 3
+                                      : (600 > width && width >= 400)
+                                          ? 2
+                                          : 1,
+                            ),
+                            shrinkWrap: true,
+                            children: projectsController.reactProjects
+                                .map((item) => Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: InkWell(
+                                        onTap: () => _launchInBrowser(Uri.parse(
+                                            item["link"] ??
+                                                item["github"].toString())),
+                                        child: Card(
+                                          elevation: 5,
+                                          child: Column(
+                                            children: [
+                                              ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                                child: Image.asset(
+                                                  item["image"]!,
+                                                ),
+                                              ),
+                                              Divider(),
+                                              Title(
+                                                  color: cText,
+                                                  child: MyTextWidget(
+                                                      text: item["title"]!)),
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.all(5.0),
+                                                child: MyTextWidget(
+                                                  text: item["info"]!,
+                                                  size: 12,
+                                                  color: cTextLight,
+                                                  fontWeight: FontWeight.w300,
+                                                  maxLines: 2,
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                height: 5,
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ))
+                                .toList(),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
                 ),
                 SingleChildScrollView(
                   child: Container(
                     width: width - 100,
                     child: Column(
                       children: [
-                        Text('Python',
-                            style: TextStyle(
-                                fontSize: 22, fontWeight: FontWeight.bold)),
                         GridView(
                           gridDelegate:
                               SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 3,
+                            crossAxisCount: width >= 900
+                                ? 4
+                                : (900 > width && width >= 600)
+                                    ? 3
+                                    : (600 > width && width >= 400)
+                                        ? 2
+                                        : 1,
                           ),
                           shrinkWrap: true,
                           children: projectsController.pythonProjects
                               .map((item) => Padding(
                                     padding: const EdgeInsets.all(8.0),
-                                    child: Card(
-                                      elevation: 5,
-                                      child: Column(
-                                        children: [
-                                          ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                            child: Image.asset(
-                                              item["image"]!,
-                                              width: 150,
-                                              height: 100,
+                                    child: InkWell(
+                                      onTap: () => _launchInBrowser(Uri.parse(
+                                          item["link"] ??
+                                              item["github"].toString())),
+                                      child: Card(
+                                        elevation: 5,
+                                        child: Column(
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                              child: Image.asset(
+                                                item["image"]!,
+                                              ),
                                             ),
-                                          ),
-                                          Divider(),
-                                          Title(
-                                              color: cText,
+                                            Divider(),
+                                            Title(
+                                                color: cText,
+                                                child: MyTextWidget(
+                                                    text: item["title"]!)),
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.all(5.0),
                                               child: MyTextWidget(
-                                                  text: item["title"]!)),
-                                          Padding(
-                                            padding: const EdgeInsets.all(5.0),
-                                            child: MyTextWidget(
-                                              text: item["info"]!,
-                                              size: 12,
-                                              color: cTextLight,
-                                              fontWeight: FontWeight.w300,
-                                              maxLines: 2,
-                                            ),
-                                          )
-                                        ],
+                                                text: item["info"]!,
+                                                size: 12,
+                                                color: cTextLight,
+                                                fontWeight: FontWeight.w300,
+                                                maxLines: 2,
+                                              ),
+                                            )
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ))

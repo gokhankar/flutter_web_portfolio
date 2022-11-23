@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/constants/style.dart';
 import 'package:flutter_portfolio/widgets/my_text_widget.dart';

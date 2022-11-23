@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/constants/controllers.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_portfolio/constants/style.dart';
 import 'package:flutter_portfolio/layout/AppResponsive.dart';
@@ -7,11 +8,15 @@ class GradientButton extends StatelessWidget {
   final String title;
   final int? height;
   final int? smallScreenheight;
+  final String? route;
+  final String? name;
   GradientButton({
     Key? key,
     required this.title,
     this.height = 50,
     this.smallScreenheight,
+    this.route,
+    this.name,
   }) : super(key: key);
 
   @override
@@ -21,7 +26,10 @@ class GradientButton extends StatelessWidget {
           ? smallScreenheight?.toDouble() ?? 30
           : height?.toDouble() ?? 50,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          route != null ? navigationController.navigateTo(route!) : null;
+          name != null ? menuController.changeActiveitemTo(name!) : null;
+        },
         style: ElevatedButton.styleFrom(padding: EdgeInsets.all(0.0)),
         // shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
         // padding: EdgeInsets.all(0.0),

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio/widgets/gradient_bg_animation.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import 'package:flutter_portfolio/widgets/gradient_bg_animation.dart';
 import 'package:flutter_portfolio/constants/style.dart';
 import 'package:flutter_portfolio/layout/AppResponsive.dart';
 import 'package:flutter_portfolio/widgets/gradient_button.dart';
@@ -14,6 +16,15 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
+    Future<void> _launchInBrowser(Uri url) async {
+      if (!await launchUrl(
+        url,
+        mode: LaunchMode.externalApplication,
+      )) {
+        throw 'Could not launch $url';
+      }
+    }
+
     return Column(
       children: [
         Expanded(
@@ -107,23 +118,30 @@ class Home extends StatelessWidget {
                       children: [
                         // IconButton(onPressed: (){}, icon: Icon(Icons.goog))
                         IconButton(
-                            onPressed: () {},
+                            onPressed: () => _launchInBrowser(
+                                Uri.parse("https://github.com/gokhankar/")),
                             icon: const FaIcon(FontAwesomeIcons.github)),
                         IconButton(
-                            onPressed: () {},
+                            onPressed: () => _launchInBrowser(
+                                Uri.parse("https://twitter.com/gokhankrcy")),
                             icon: const FaIcon(FontAwesomeIcons.twitter)),
                         IconButton(
-                            onPressed: () {},
+                            onPressed: () => _launchInBrowser(Uri.parse(
+                                "https://www.instagram.com/gokaracay/")),
                             icon: const FaIcon(FontAwesomeIcons.instagram)),
                         IconButton(
-                            onPressed: () {},
+                            onPressed: () => _launchInBrowser(Uri.parse(
+                                "hhttps://www.linkedin.com/in/g%C3%B6khan-kara%C3%A7ay/")),
                             icon: const FaIcon(FontAwesomeIcons.linkedin)),
                       ],
                     ),
                     SizedBox(
                       height: AppResponsive.isSmallScreen(context) ? 15 : 30,
                     ),
-                    GradientButton(title: "SEE MY WORKS"),
+                    GradientButton(
+                        title: "SEE MY WORKS",
+                        route: "/projects",
+                        name: "Projects"),
                   ],
                 ),
               ),
