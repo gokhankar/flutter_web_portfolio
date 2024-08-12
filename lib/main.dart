@@ -10,7 +10,7 @@ import 'package:flutter_portfolio/pages/home.dart';
 import 'package:flutter_portfolio/route/routes.dart';
 
 void main() {
-  Get.put(MenuController());
+  Get.put(MenuControllerx());
   Get.put(NavigationController());
   runApp(const MyApp());
 }

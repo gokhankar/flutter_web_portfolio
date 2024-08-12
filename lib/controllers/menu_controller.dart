@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 import 'package:flutter_portfolio/constants/style.dart';
 import 'package:flutter_portfolio/route/routes.dart';
 
-class MenuController extends GetxController {
-  static MenuController instance = Get.find();
+class MenuControllerx extends GetxController {
+  static MenuControllerx instance = Get.find();
   var activeItem = HomePageDisplayName.obs;
   var hoverItem = "".obs;
 
