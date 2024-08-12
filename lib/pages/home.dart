@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/controllers/form_controller.dart';
+import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -14,6 +16,7 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final FormController fContx = Get.put(FormController());
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     Future<void> _launchInBrowser(Uri url) async {
@@ -138,10 +141,17 @@ class Home extends StatelessWidget {
                     SizedBox(
                       height: AppResponsive.isSmallScreen(context) ? 15 : 30,
                     ),
-                    GradientButton(
-                        title: "SEE MY WORKS",
-                        route: "/projects",
-                        name: "Projects"),
+                    Obx(
+                      () => fContx.colorIndex.value != 3
+                          ? GradientButton(
+                              colorList: fContx.colorIndex.value == 1
+                                  ? [cMiddleDark, cDark]
+                                  : [cDark, cMiddleDark],
+                              title: "SEE MY WORKS",
+                              route: "/projects",
+                              name: "Projects")
+                          : SizedBox(),
+                    )
                   ],
                 ),
               ),

@@ -1,18 +1,30 @@
+import 'dart:ui';
+
+import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/constants/style.dart';
 import 'package:get/get.dart';
 
 class FormController extends GetxController {
   static FormController instance = Get.find();
 
-  var city = ''.obs;
+  var isHovered = false;
   var email = ''.obs;
   var name = ''.obs;
-  var obscure = true.obs;
-  var obscure2 = true.obs;
-  var password = ''.obs;
-  var password2 = ''.obs;
-  var rememberMe = false.obs;
-  var selectedCity = ''.obs;
+  var subject = ''.obs;
+  var message = ''.obs;
 
+  var colorList = [cMiddleDark, cDark].obs;
+  var colorIndex = 1.obs;
+
+  TextEditingController nameTec = TextEditingController();
+  TextEditingController subTec = TextEditingController();
+  TextEditingController eMailTec = TextEditingController();
+  TextEditingController messageTec = TextEditingController();
+
+  sendFormData() {
+    var text = 'Name : $name - Subject: $subject - Message : $message';
+    print(text);
+  }
   // RxnString? errorText = RxnString(null);
 
   // void submitFunction() {

@@ -2,18 +2,21 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/constants/style.dart';
+import 'package:flutter_portfolio/controllers/form_controller.dart';
 import 'package:flutter_portfolio/layout/AppResponsive.dart';
 import 'package:flutter_portfolio/widgets/gradient_bg_animation.dart';
 import 'package:flutter_portfolio/widgets/gradient_bg_animation_about.dart';
 import 'package:flutter_portfolio/widgets/gradient_button.dart';
 import 'package:flutter_portfolio/widgets/my_text_widget.dart';
 import 'package:flutter_portfolio/widgets/rps_costum_painter_about.dart';
+import 'package:get/get.dart';
 
 class AboutPage extends StatelessWidget {
   const AboutPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final FormController fContx = Get.put(FormController());
     var width = MediaQuery.of(context).size.width;
     return Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -97,7 +100,16 @@ class AboutPage extends StatelessWidget {
                         fontWeight: FontWeight.w300,
                       ),
                       SizedBox(height: 20),
-                      GradientButton(title: "DOWNLOAD CV")
+                      Obx(
+                        () => fContx.colorIndex.value != 3
+                            ? GradientButton(
+                                colorList: fContx.colorIndex.value == 1
+                                    ? [cMiddleDark, cDark]
+                                    : [cDark, cMiddleDark],
+                                title: "DOWNLOAD CV",
+                              )
+                            : SizedBox(),
+                      )
                     ],
                   ),
                 ),

@@ -15,6 +15,8 @@ class MessageForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final FormController fContx = Get.put(FormController());
+
     return Container(
         padding: EdgeInsets.symmetric(horizontal: 20),
         width: 340,
@@ -31,10 +33,11 @@ class MessageForm extends StatelessWidget {
               height: 20,
             ),
             TextFormFieldWidget(
+              controller: fContx.nameTec,
               hintText: 'Name',
               keyboardType: TextInputType.name,
               onChanged: (value) {
-                formController.email.value = value;
+                formController.name.value = value;
               },
               prefixIcon: const Icon(Icons.person),
               textInputAction: TextInputAction.next,
@@ -45,6 +48,7 @@ class MessageForm extends StatelessWidget {
             ),
             SizedBox(height: 10),
             TextFormFieldWidget(
+              controller: fContx.eMailTec,
               hintText: 'Email',
               keyboardType: TextInputType.emailAddress,
               onChanged: (value) {
@@ -59,10 +63,11 @@ class MessageForm extends StatelessWidget {
             ),
             SizedBox(height: 10),
             TextFormFieldWidget(
+              controller: fContx.subTec,
               hintText: 'Subject',
               keyboardType: TextInputType.name,
               onChanged: (value) {
-                formController.email.value = value;
+                formController.subject.value = value;
               },
               prefixIcon: const Icon(Icons.subject),
               textInputAction: TextInputAction.next,
@@ -73,11 +78,12 @@ class MessageForm extends StatelessWidget {
             ),
             SizedBox(height: 10),
             TextFormFieldWidget(
+              controller: fContx.messageTec,
               hintText: '\n  Your message',
               maxLines: 6,
               keyboardType: TextInputType.name,
               onChanged: (value) {
-                formController.email.value = value;
+                formController.message.value = value;
               },
               // prefixIcon: const Icon(Icons.message),
               textInputAction: TextInputAction.next,
@@ -87,9 +93,16 @@ class MessageForm extends StatelessWidget {
               // ]),
             ),
             SizedBox(height: 20),
-            GradientButton(
-              title: "SEND MESSAGE",
-              smallScreenheight: 50,
+            Obx(
+              () => fContx.colorIndex.value != 3
+                  ? GradientButton(
+                      colorList: fContx.colorIndex.value == 1
+                          ? [cMiddleDark, cDark]
+                          : [cDark, cMiddleDark],
+                      title: "SEND MESSAGE",
+                      smallScreenheight: 50,
+                      todo: true)
+                  : SizedBox(),
             ),
             SizedBox(height: 50),
           ],
