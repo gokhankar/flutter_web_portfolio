@@ -14,11 +14,15 @@ class FormController extends GetxController
     with GetSingleTickerProviderStateMixin {
   static FormController instance = Get.find();
   late AnimationController controller;
+  var hasCallSupport = false.obs;
 
   @override
   void onInit() {
     // TODO: implement onInit
     super.onInit();
+    canLaunchUrl(Uri(scheme: 'tel', path: '123')).then((bool result) {
+      hasCallSupport.value = result;
+    });
     controller = AnimationController(
       vsync: this,
       duration: const Duration(
@@ -45,14 +49,31 @@ class FormController extends GetxController
   TextEditingController eMailTec = TextEditingController();
   TextEditingController messageTec = TextEditingController();
 
-  Future<void> _launchInBrowser(Uri url) async {
-    print('inin');
+  Future<void> launchInBrowser(Uri url) async {
     if (!await launchUrl(
       url,
       mode: LaunchMode.externalApplication,
     )) {
       throw 'Could not launch $url';
     }
+  }
+
+  void sendEmail(email) async {
+    String? encodeQueryParameters(Map<String, String> params) {
+      return params.entries
+          .map((MapEntry<String, String> e) =>
+              '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
+          .join('&');
+    }
+
+    final Uri emailLaunchUri = Uri(
+      scheme: 'mailto',
+      path: email,
+      query: encodeQueryParameters(<String, String>{
+        'subject': "Hi Gökhan",
+      }),
+    );
+    await launchUrl(emailLaunchUri);
   }
 
   sendFormData() {
@@ -117,8 +138,7 @@ class FormController extends GetxController
   }
 
   openLinkedinPage() {
-    print('in');
-    _launchInBrowser(Uri.parse(
+    launchInBrowser(Uri.parse(
         "https://docs.google.com/document/d/1W9TgmiXQVEdJNf_HLLRJylJK224BlYJS/edit?usp=sharing&ouid=110831171369223298060&rtpof=true&sd=true"));
   }
 }

@@ -7,7 +7,7 @@ class BlogPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: MyTextWidget(text: "Blog Page"),
+      child: MyTextWidget(text: "Blog Page is being prepared."),
     );
   }
 }

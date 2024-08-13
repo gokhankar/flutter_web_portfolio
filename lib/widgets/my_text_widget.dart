@@ -6,11 +6,13 @@ class MyTextWidget extends StatelessWidget {
       {super.key,
       required this.text,
       this.size = 16,
+      this.textAlign = TextAlign.justify,
       this.maxLines = 1,
       this.color = Colors.black87,
       this.fontWeight = FontWeight.normal});
   final String text;
   final int maxLines;
+  final TextAlign textAlign;
   final double size;
   final Color color;
   final FontWeight fontWeight;
@@ -19,7 +21,7 @@ class MyTextWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      textAlign: TextAlign.justify,
+      // textAlign: TextAlign.justify,
       style: GoogleFonts.roboto(
           fontSize: size, color: color, fontWeight: fontWeight),
       maxLines: maxLines,

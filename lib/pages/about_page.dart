@@ -90,6 +90,8 @@ class AboutPage extends StatelessWidget {
                         text: "FLUTTER MOBILE APPLICATION DEVELOPER",
                         size: 24,
                         fontWeight: FontWeight.bold,
+                        maxLines: 3,
+                        textAlign: TextAlign.left,
                       ),
                       SizedBox(height: 20),
                       MyTextWidget(
@@ -98,6 +100,7 @@ class AboutPage extends StatelessWidget {
                         size: 14,
                         color: cTextLight,
                         fontWeight: FontWeight.w300,
+                        maxLines: 20,
                       ),
                       SizedBox(height: 20),
                       Obx(
