@@ -1,6 +1,7 @@
 # Responsive Flutter Web App
 
 A responsive Gökhan Karaçay portfolio that coded to make some workout on especially on Flutter-Web
+Dİ 13 August 2024 19.46
 
 ## flutter_portfolio
 
