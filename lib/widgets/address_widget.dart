@@ -92,6 +92,9 @@ class AddressWidget extends StatelessWidget {
                 ),
               ),
             ),
+            SizedBox(
+              height: 50,
+            )
           ],
         ));
   }

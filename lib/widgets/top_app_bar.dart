@@ -17,10 +17,15 @@ AppBar TopAppBar(BuildContext context, GlobalKey<ScaffoldState> key) => AppBar(
               children: [
                 Container(
                   padding: const EdgeInsets.only(left: 25),
-                  child: Image.asset(
-                    "assets/images/50px.png",
-                    width: 40,
-                    filterQuality: FilterQuality.high,
+                  child: InkWell(
+                    onTap: () {
+                      navigationController.navigateTo('/home');
+                    },
+                    child: Image.asset(
+                      "assets/images/50px.png",
+                      width: 40,
+                      filterQuality: FilterQuality.high,
+                    ),
                   ),
                 ),
                 // Expanded(child: Container()),
