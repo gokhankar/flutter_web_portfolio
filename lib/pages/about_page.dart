@@ -106,7 +106,8 @@ class AboutPage extends StatelessWidget {
                                 colorList: fContx.colorIndex.value == 1
                                     ? [cMiddleDark, cDark]
                                     : [cDark, cMiddleDark],
-                                title: "DOWNLOAD CV",
+                                title: "CHECK OUT CV",
+                                toCV: true,
                               )
                             : SizedBox(),
                       )

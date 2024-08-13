@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_portfolio/constants/style.dart';
 import 'package:flutter_portfolio/layout/AppResponsive.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class GradientButton extends StatelessWidget {
   final String title;
@@ -13,7 +14,8 @@ class GradientButton extends StatelessWidget {
   final List<Color>? colorList;
   final String? route;
   final String? name;
-  final bool? todo;
+  final bool? sendMessage;
+  final bool? toCV;
   GradientButton({
     Key? key,
     required this.title,
@@ -22,7 +24,8 @@ class GradientButton extends StatelessWidget {
     this.route,
     this.name,
     this.colorList,
-    this.todo,
+    this.sendMessage,
+    this.toCV,
   }) : super(key: key);
 
   @override
@@ -44,7 +47,8 @@ class GradientButton extends StatelessWidget {
           onPressed: () {
             route != null ? navigationController.navigateTo(route!) : null;
             name != null ? menuController.changeActiveitemTo(name!) : null;
-            todo != null ? fContx.sendFormData() : null;
+            sendMessage != null ? fContx.sendFormData() : null;
+            toCV != null ? fContx.openLinkedinPage() : null;
           },
           style: ElevatedButton.styleFrom(padding: EdgeInsets.all(0.0)),
           // shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),

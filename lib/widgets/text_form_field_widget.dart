@@ -15,6 +15,8 @@ class TextFormFieldWidget extends StatelessWidget {
       this.keyboardType,
       this.labelText,
       this.maxLines,
+      this.horizontalPadding,
+      this.verticalPadding,
       this.onChanged,
       this.prefixIcon,
       this.readOnly,
@@ -31,6 +33,8 @@ class TextFormFieldWidget extends StatelessWidget {
   final String? helperText;
   final String? hintText;
   final int? maxLines;
+  final double? horizontalPadding;
+  final double? verticalPadding;
   final bool? obscureText;
   final TextInputType? keyboardType;
   final String? labelText;
@@ -64,7 +68,9 @@ class TextFormFieldWidget extends StatelessWidget {
         cursorColor: cText,
         controller: controller,
         decoration: InputDecoration(
-          contentPadding: const EdgeInsets.symmetric(vertical: 3),
+          contentPadding: EdgeInsets.symmetric(
+              vertical: verticalPadding ?? 10,
+              horizontal: horizontalPadding ?? 5),
           border: const OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(5.0)),
           ),

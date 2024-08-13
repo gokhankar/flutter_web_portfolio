@@ -23,13 +23,13 @@ class AddressWidget extends StatelessWidget {
             ListTile(
               leading: Icon(Icons.home_rounded),
               title: MyTextWidget(
-                text: "Turkey, Sinop, Boyabat",
+                text: "Germany, Neuss",
                 size: 14,
                 color: cText,
                 fontWeight: FontWeight.bold,
               ),
               subtitle: MyTextWidget(
-                text: "57700 Martı St. 21",
+                text: "Neuss 41460",
                 size: 12,
                 color: cTextLight,
                 fontWeight: FontWeight.w300,

@@ -134,7 +134,7 @@ class Home extends StatelessWidget {
                             icon: const FaIcon(FontAwesomeIcons.instagram)),
                         IconButton(
                             onPressed: () => _launchInBrowser(Uri.parse(
-                                "hhttps://www.linkedin.com/in/g%C3%B6khan-kara%C3%A7ay/")),
+                                "https://www.linkedin.com/in/gokhankaracay/")),
                             icon: const FaIcon(FontAwesomeIcons.linkedin)),
                       ],
                     ),
